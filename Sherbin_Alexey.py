@@ -35,12 +35,9 @@ class Price_detecter():
         await asyncio.gather(process)
 
 price_detect = Price_detecter(api='https://api.binance.com/api/v3/avgPrice?symbol=')
-price_detect.create_coin("XRPUSDT")
+price_detect.create_coin("ETHUSDT")
 loop = asyncio.get_event_loop()
 loop.run_until_complete(price_detect.start_cheking_asincio())
 
-# Что бы реализовать возможность мониторинга нескольких монет, я бы модифицировал метод "create_coin" в 
-# метод который добавляет монеты в словарь в котором ключ: Название пары, Значение: цена.
-# за тем в цикле While перебирал их, и на каждый запрос создавался бы отдельный Task, т.к.
-# запросы в любом случае происходят с достаточной задержкой, то это время было бы логично использовать это время 
-# для передачи управления на другой запрос.
+# Прошу прощения, выполнил только второе задания. Я понятия не имею как отделить
+# собственное изменение цены от влияния BTC. :С
